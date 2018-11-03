@@ -1,6 +1,6 @@
 import requests
 import os
-
+import time
 
 
 def download_url_to_string(url):
@@ -29,10 +29,29 @@ def save_string_to_file(text, directory, filename):
         file_out.write(text)
     return None
 
-
-for i in range(1, 26):
-    page_url = 'https://www.goodreads.com/shelf/show/fiction?page={}'.format(i)
+for i in range(1, 6):
+    page_url = 'https://www.goodreads.com/list/show/16.Best_Books_of_the_19th_Century?page={}'.format(i)
     text = download_url_to_string(page_url)
-    directory = 'nalozene_strani'
+    directory = 'C:\\Users\\Živa\\Desktop\\nalozene_strani'
     filename = 'stran{}.html'.format(i)
     save_string_to_file(text, directory, filename)
+    time.sleep(1)
+    print('shranjujem stran {}'.format(i))
+
+for i in range(1, 16):
+    page_url = 'https://www.goodreads.com/list/show/6.Best_Books_of_the_20th_Century?page={}'.format(i)
+    text = download_url_to_string(page_url)
+    directory = 'C:\\Users\\Živa\\Desktop\\nalozene_strani'
+    filename = 'stran{}.html'.format(i + 5)
+    save_string_to_file(text, directory, filename)
+    time.sleep(1)
+    print('shranjujem stran {}'.format(i + 5))
+
+for i in range(1, 16):
+    page_url = 'https://www.goodreads.com/list/show/7.Best_Books_of_the_21st_Century?page={}'.format(i)
+    text = download_url_to_string(page_url)
+    directory = 'C:\\Users\\Živa\\Desktop\\nalozene_strani'
+    filename = 'stran{}.html'.format(i + 20)
+    save_string_to_file(text, directory, filename)
+    time.sleep(1)
+    print('shranjujem stran {}'.format(i + 20))
